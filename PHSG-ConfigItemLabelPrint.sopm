@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <otobo_package version="1.1">
-    <Name>ITSMConfigItemLabelPrint</Name>
+    <Name>PHSG-ConfigItemLabelPrint</Name>
     <Version>11.0.1.1</Version>
-    <Vendor>Rother OSS Enterprises</Vendor>
-    <URL>http://otobo.ch/</URL>
+    <Vendor>Rother OSS GmbH</Vendor>
+    <URL>http://otobo.de/</URL>
     <License>AFFERO GNU GENERAL PUBLIC LICENSE Version 2, June 1991</License>
     <Description Lang="en">OTOBO::ITSM config item label print including barcode.</Description>
     <Description Lang="de">OTOBO::ITSM ConfigItem Label Druckfunktion mit Barcode.</Description>
