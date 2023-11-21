@@ -92,8 +92,6 @@ These font aliases are available in all methods:
 
 =cut
 
-# Rother OSS Enterprises
-
 =item BarcodeGet()
 
 Get Barcode
@@ -221,8 +219,6 @@ sub BarcodeGet {
 
     return 1;
 }
-# EO Rother OSS Enterprises
-
 
 sub DocumentNew {
     my ( $Self, %Param ) = @_;
