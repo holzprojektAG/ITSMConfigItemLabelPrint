@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <otobo_package version="1.1">
-    <Name>PHSG-ConfigItemLabelPrint</Name>
+    <Name>ITSMConfigItemLabelPrint</Name>
     <Version>11.0.1.1</Version>
     <Vendor>Rother OSS GmbH</Vendor>
     <URL>http://otobo.de/</URL>
@@ -10,6 +10,7 @@
     <Framework>11.0.x</Framework>
     <BuildDate>2023-08-21 13:51:03</BuildDate>
     <BuildHost>servicedesk.phsg.ch</BuildHost>
+    <PackageMerge Name="PHSG-ConfigItemLabelPrint" TargetVersion="11.0.x"></PackageMerge>
     <ModuleRequired>Imager::QRCode</ModuleRequired>
     <Filelist>
         <File Location="Custom/Kernel/System/PDF.pm" Permission="644" ></File>
