@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTOBO Installation Guide rel-11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-16 09:46+0200\n"
+"POT-Creation-Date: 2024-05-16 19:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,208 +16,307 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../content/index.rst:20
+#: ../../content/index.rst:16
 msgid "Sacrifice to Sphinx"
 msgstr ""
 
-#: ../../content/index.rst:23
+#: ../../content/index.rst:19
 msgid "Description"
 msgstr ""
 
-#: ../../content/index.rst:24
+#: ../../content/index.rst:20
 msgid "OTOBO::ITSM config item label print including barcode."
 msgstr ""
 
-#: ../../content/index.rst:27
+#: ../../content/index.rst:23
 msgid "System requirements"
 msgstr ""
 
-#: ../../content/index.rst:30
+#: ../../content/index.rst:26
 msgid "Framework"
 msgstr ""
 
-#: ../../content/index.rst:31
+#: ../../content/index.rst:27
 msgid "OTOBO 11.0.x"
 msgstr ""
 
-#: ../../content/index.rst:34
+#: ../../content/index.rst:30
 msgid "Packages"
 msgstr ""
 
+#: ../../content/index.rst:31
+msgid "ITSMConfigurationManagement 11.0.0"
+msgstr ""
+
+#: ../../content/index.rst:34
+msgid "Third-party software"
+msgstr ""
+
 #: ../../content/index.rst:35
-#: ../../content/index.rst:39
 msgid "\\-"
 msgstr ""
 
 #: ../../content/index.rst:38
-msgid "Third-party software"
-msgstr ""
-
-#: ../../content/index.rst:42
 msgid "Usage"
 msgstr ""
 
-#: ../../content/index.rst:45
+#: ../../content/index.rst:39
+msgid "The package ITSMConfigItemLabelPrint brings the functionality to create a highly customizable PDF file. This can be done via the added \"LabelPrint\" button in the Zoom view in the Agent interface."
+msgstr ""
+
+#: ../../content/index.rst:42
 msgid "Setup"
 msgstr ""
 
+#: ../../content/index.rst:43
+msgid "To shape the resulting PDF file as needed, a wide variety of options is available. The PDF consists of 5 elements (see Picture) and the respective system configuration:"
+msgstr ""
+
+#: ../../content/index.rst:45
+msgid "Logo (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting`)"
+msgstr ""
+
+#: ../../content/index.rst:46
+msgid "Text (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Text`)"
+msgstr ""
+
+#: ../../content/index.rst:47
+msgid "Horizontal Line (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting`)"
+msgstr ""
+
 #: ../../content/index.rst:48
-msgid "Configuration Reference"
+msgid "Barcode (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###BarcodeSetting`)"
+msgstr ""
+
+#: ../../content/index.rst:49
+msgid "Footer (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###FooterSetting`)"
 msgstr ""
 
 #: ../../content/index.rst:51
-msgid "Frontend::Agent::ITSMConfigItem::MenuModule"
+msgid "Each of this is only printed if the corresponding system configuration setting is active. This way, it can be defined which elements are wanted and which elements are omitted entirely."
 msgstr ""
 
-#: ../../content/index.rst:54
-msgid "ITSMConfigItem::Frontend::MenuModule###450-LabelPrint"
+#: ../../content/index.rst:57
+msgid "The screenshot shows the elements available."
 msgstr ""
 
-#: ../../content/index.rst:55
-msgid "Shows a link in the menu to print a label of the configuration item in the zoom view of the agent interface."
-msgstr ""
-
-#: ../../content/index.rst:58
-msgid "Frontend::Agent::ITSMConfigItem::Permission"
+#: ../../content/index.rst:60
+msgid "Logo"
 msgstr ""
 
 #: ../../content/index.rst:61
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Permission"
+msgid "For the logo, an image file with the logo is needed. It can be placed in every location in the OTOBO directory. Recommended would be a location like `/opt/otobo/var/https/htdocs/skins/Agent/default/img/LogoFile.png`. The location then must be put into the system configuration setting `Kernel/Modules/AgentITSMConfigItemLabelPrint.pm`, key `LogoPath`. The setting holds some other options which can be used to customize the appearance of the logo in the PDF."
 msgstr ""
 
-#: ../../content/index.rst:62
-msgid "Required permissions to use the print ITSM configuration item screen in the agent interface."
+#: ../../content/index.rst:64
+msgid "Text"
 msgstr ""
 
 #: ../../content/index.rst:65
-msgid "Frontend::Agent::ModuleRegistration"
+msgid "The text is printed in a table-like structure, per default from the top middle position downwards. Each entry in the array of the system configuration setting `ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Text` is printed as a separate line. Within the lines, Template::Toolkit syntax can be used to put in data from the configuration item, e.g. like 'Nr.: [% Data.Number %]', which will produce a result like 'Nr.: 123456789'."
 msgstr ""
 
-#: ../../content/index.rst:68
-msgid "Frontend::Module###AgentITSMConfigItemLabelPrint"
+#: ../../content/index.rst:67
+msgid "The styling and positioning options of the Text can be customized with the system configuration setting `ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###TableSetting`."
 msgstr ""
 
-#: ../../content/index.rst:69
-msgid "Frontend module registration for the agent interface."
+#: ../../content/index.rst:70
+msgid "Horizontal Line"
 msgstr ""
 
-#: ../../content/index.rst:72
-msgid "Frontend::Agent::ModuleRegistration::MainMenu"
+#: ../../content/index.rst:71
+msgid "For optical structure, a horizontal line can be placed at a customizable height. In the system configuration setting `ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting`, also the color and line width can be changed."
+msgstr ""
+
+#: ../../content/index.rst:74
+msgid "Barcode"
 msgstr ""
 
 #: ../../content/index.rst:75
-msgid "Frontend::Navigation###AgentITSMConfigItemLabelPrint###003-AgentITSMConfigItemLabelPrint"
+msgid "The system configuration setting `ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###BarcodeSetting` can be used to change format and appearance of the barcode. The settings have the following meaning:"
 msgstr ""
 
-#: ../../content/index.rst:76
-msgid "Main menu item registration."
+#: ../../content/index.rst:77
+msgid "BarcodeField: Attribute of the config item used for the barcode."
+msgstr ""
+
+#: ../../content/index.rst:78
+msgid "Caption: Whether to put the data below the barcode as caption. Ignored for QR code."
 msgstr ""
 
 #: ../../content/index.rst:79
-msgid "Frontend::AgentITSMConfigItemLabelPrint"
+msgid "QRCodeLink: When creating a QR code, set the link destination."
+msgstr ""
+
+#: ../../content/index.rst:80
+msgid "CustomLink: Define a custom link via Template::Toolkit syntax for QR codes."
+msgstr ""
+
+#: ../../content/index.rst:81
+msgid "Code: Which type of code to print."
 msgstr ""
 
 #: ../../content/index.rst:82
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting"
+msgid "Zone: The base height of the barcode in points."
 msgstr ""
 
 #: ../../content/index.rst:83
-msgid "Used logo settings for the label. The best size is 142 x 187 px. Please use here px."
+msgid "LowerMendingZone: If present and applicable, bars for non-printing characters (e.g. start and stop characters) will be extended downward by this many points, and printing characters will be shown below their respective bars. This is enabled by default for EAN-13 barcodes."
 msgstr ""
 
-#: ../../content/index.rst:86
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###TableSetting"
+#: ../../content/index.rst:84
+msgid "Font: Font to use for the barcode caption."
 msgstr ""
 
-#: ../../content/index.rst:87
-msgid "Used table settings for the label."
+#: ../../content/index.rst:85
+msgid "FontSize: Font size to use for the barcode caption."
 msgstr ""
 
-#: ../../content/index.rst:90
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###BarcodeSetting"
+#: ../../content/index.rst:88
+msgid "Footer"
 msgstr ""
 
-#: ../../content/index.rst:91
-msgid "Used barcode settings for the label."
+#: ../../content/index.rst:89
+msgid "In the system configuration setting `ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###FooterSetting`, location, appearance and content of a footer section can be specified. The key 'FooterText' is capable of interpreting Template::Toolkit syntax (compare description of the Text section)."
 msgstr ""
 
-#: ../../content/index.rst:94
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###FooterSetting"
+#: ../../content/index.rst:92
+msgid "Configuration Reference"
 msgstr ""
 
 #: ../../content/index.rst:95
-msgid "Used footer settings for the label."
+msgid "Frontend::Agent::ITSMConfigItem::MenuModule"
 msgstr ""
 
 #: ../../content/index.rst:98
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting"
+msgid "ITSMConfigItem::Frontend::MenuModule###450-LabelPrint"
 msgstr ""
 
 #: ../../content/index.rst:99
-msgid "Used settings for the horizont line."
+msgid "Shows a link in the menu to print a label of the configuration item in the zoom view of the agent interface."
 msgstr ""
 
 #: ../../content/index.rst:102
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value2"
+msgid "Frontend::Agent::ITSMConfigItem::Permission"
 msgstr ""
 
-#: ../../content/index.rst:103
-#: ../../content/index.rst:111
-#: ../../content/index.rst:115
-#: ../../content/index.rst:119
-#: ../../content/index.rst:123
-msgid "It´s possible to print up to 5 CI values to the label. Please add here the CI key."
+#: ../../content/index.rst:105
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Permission"
 msgstr ""
 
 #: ../../content/index.rst:106
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###PageSetting"
+msgid "Required permissions to use the print ITSM configuration item screen in the agent interface."
 msgstr ""
 
-#: ../../content/index.rst:107
-msgid "Used page size in mm and other page settings. Be carefull if you change the size, it´s possible that the label is unusable."
+#: ../../content/index.rst:109
+msgid "Frontend::Agent::ModuleRegistration"
 msgstr ""
 
-#: ../../content/index.rst:110
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value1"
+#: ../../content/index.rst:112
+msgid "Frontend::Module###AgentITSMConfigItemLabelPrint"
 msgstr ""
 
-#: ../../content/index.rst:114
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value3"
+#: ../../content/index.rst:113
+msgid "Frontend module registration for the agent interface."
 msgstr ""
 
-#: ../../content/index.rst:118
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value5"
+#: ../../content/index.rst:116
+msgid "Frontend::Agent::ModuleRegistration::MainMenu"
 msgstr ""
 
-#: ../../content/index.rst:122
-msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value4"
+#: ../../content/index.rst:119
+msgid "Frontend::Navigation###AgentITSMConfigItemLabelPrint###003-AgentITSMConfigItemLabelPrint"
+msgstr ""
+
+#: ../../content/index.rst:120
+msgid "Main menu item registration."
+msgstr ""
+
+#: ../../content/index.rst:123
+msgid "Frontend::Agent::View::AgentITSMConfigItemLabelPrint"
 msgstr ""
 
 #: ../../content/index.rst:126
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###BarcodeSetting"
+msgstr ""
+
+#: ../../content/index.rst:127
+msgid "Used barcode settings for the label. Options have the following meaning: - BarcodeField: Attribute of the config item used for the barcode. - Caption: Whether to put the data below the barcode as caption. Ignored for QR code. - QRCodeLink: When creating a QR code, set the link destination. - CustomLink: Define a custom link via Template::Toolkit syntax for QR codes. - Code: Which type of code to print. - Zone: The base height of the barcode in points. - LowerMendingZone: If present and applicable, bars for non-printing characters (e.g. start and stop characters) will be extended downward by this many points, and printing characters will be shown below their respective bars. This is enabled by default for EAN-13 barcodes. - Font: Font to use for the barcode caption. - FontSize: Font size to use for the barcode caption."
+msgstr ""
+
+#: ../../content/index.rst:139
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###TableSetting"
+msgstr ""
+
+#: ../../content/index.rst:140
+msgid "Used table settings for the label."
+msgstr ""
+
+#: ../../content/index.rst:143
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting"
+msgstr ""
+
+#: ../../content/index.rst:144
+msgid "Used logo settings for the label. The best size is 142 x 187 px. Please use here px."
+msgstr ""
+
+#: ../../content/index.rst:147
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting"
+msgstr ""
+
+#: ../../content/index.rst:148
+msgid "Used settings for the horizont line."
+msgstr ""
+
+#: ../../content/index.rst:151
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Text"
+msgstr ""
+
+#: ../../content/index.rst:152
+msgid "Define several lines (one entry per line) to be printed as label content. Template::Toolkit is supported, thus config item data can be used like \"Number: [% Data.Number %]\"."
+msgstr ""
+
+#: ../../content/index.rst:155
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###FooterSetting"
+msgstr ""
+
+#: ../../content/index.rst:156
+msgid "Used footer settings for the label. Template::Toolkit is supported, thus config item data can be used like \"Number: [% Data.Number %]\"."
+msgstr ""
+
+#: ../../content/index.rst:159
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###PageSetting"
+msgstr ""
+
+#: ../../content/index.rst:160
+msgid "Used page size in mm and other page settings. Be carefull if you change the size, it´s possible that the label is unusable."
+msgstr ""
+
+#: ../../content/index.rst:163
 msgid "About"
 msgstr ""
 
-#: ../../content/index.rst:129
+#: ../../content/index.rst:166
 msgid "Contact"
 msgstr ""
 
-#: ../../content/index.rst:130
+#: ../../content/index.rst:167
 msgid "Rother OSS GmbH"
 msgstr ""
 
-#: ../../content/index.rst:131
+#: ../../content/index.rst:168
 msgid "Email: hello@otobo.de"
 msgstr ""
 
-#: ../../content/index.rst:132
+#: ../../content/index.rst:169
 msgid "Web: https://otobo.de"
 msgstr ""
 
-#: ../../content/index.rst:135
+#: ../../content/index.rst:172
 msgid "Version"
 msgstr ""
 
-#: ../../content/index.rst:136
+#: ../../content/index.rst:173
 msgid "Author: |doc-vendor| / Version: |doc-version| / Date of release: |doc-datestamp|"
 msgstr ""
 
