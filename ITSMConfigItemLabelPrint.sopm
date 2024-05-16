@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<otobo_package version="1.1">
+<otobo_package version="1.0">
     <Name>ITSMConfigItemLabelPrint</Name>
-    <Version>11.0.1.1</Version>
+    <Version>0.0.0</Version>
+    <Framework>11.0.x</Framework>
+    <ModuleRequired>Text::QRCode</ModuleRequired>
+    <PackageRequired Version="11.0.0">ITSMConfigurationManagement</PackageRequired>
     <Vendor>Rother OSS GmbH</Vendor>
-    <URL>http://otobo.de/</URL>
-    <License>AFFERO GNU GENERAL PUBLIC LICENSE Version 2, June 1991</License>
+    <URL>https://otobo.de/</URL>
+    <License>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</License>
     <Description Lang="en">OTOBO::ITSM config item label print including barcode.</Description>
     <Description Lang="de">OTOBO::ITSM ConfigItem Label Druckfunktion mit Barcode.</Description>
-    <Framework>11.0.x</Framework>
-    <BuildDate>2023-08-21 13:51:03</BuildDate>
-    <BuildHost>servicedesk.phsg.ch</BuildHost>
-    <PackageMerge Name="PHSG-ConfigItemLabelPrint" TargetVersion="11.0.x"></PackageMerge>
-    <ModuleRequired>Imager::QRCode</ModuleRequired>
     <Filelist>
-        <File Location="Custom/Kernel/System/PDF.pm" Permission="644" ></File>
-        <File Location="Kernel/Config/Files/XML/AgentITSMConfigItemLabelPrint.xml" Permission="644" ></File>
-        <File Location="Custom/Kernel/Modules/AgentITSMConfigItemLabelPrint.pm" Permission="644" ></File>
-        <File Location="Kernel/Output/HTML/Templates/Standard/AgentITSMConfigItemLabelPrint.tt" Permission="644" ></File>
+        <File Permission="660" Location="Kernel/Config/Files/XML/ITSMConfigItemLabelPrint.xml" />
+        <File Permission="660" Location="Kernel/Modules/AgentITSMConfigItemLabelPrint.pm" />
     </Filelist>
+    <PackageMerge Name="RotherOSS-ITSMConfigItemLabelPrint" TargetVersion="11.0.1"></PackageMerge>
 </otobo_package>

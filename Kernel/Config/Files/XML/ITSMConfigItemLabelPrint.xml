@@ -9,7 +9,7 @@
     </Setting>
     <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###PageSetting" Required="1" Valid="1">
         <Description Translatable="1">Used page size in mm and other page settings. Be carefull if you change the size, it´s possible that the label is unusable.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
+        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
                 <Item Key="PageWidth">76.6</Item>
@@ -24,10 +24,10 @@
     </Setting>
     <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting" Required="1" Valid="1">
         <Description Translatable="1">Used logo settings for the label. The best size is 142 x 187 px. Please use here px.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
+        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
-                <Item Key="LogoPath">C:/otobo/OTOBO/var/httpd/htdocs/skins/Agent/default/img/LogoLabelPrint.png</Item>
+                <Item Key="LogoPath">var/httpd/htdocs/skins/Agent/default/img/LogoLabelPrint.png</Item>
                 <Item Key="DisplayType">Reduce</Item>
                 <Item Key="ImageWidth">142</Item>
                 <Item Key="ImageHeight">179</Item>
@@ -39,7 +39,7 @@
     </Setting>
     <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###TableSetting" Required="1" Valid="1">
         <Description Translatable="1">Used table settings for the label.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
+        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
                 <Item Key="Font">ProportionalBold</Item>
@@ -60,7 +60,7 @@
     </Setting>
     <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting" Required="1" Valid="1">
         <Description Translatable="1">Used settings for the horizont line.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
+        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
                 <Item Key="HLinePosition_X">left</Item>
@@ -71,30 +71,54 @@
         </Value>
     </Setting>
     <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###BarcodeSetting" Required="1" Valid="1">
-        <Description Translatable="1">Used barcode settings for the label.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
+        <Description Translatable="1">Used barcode settings for the label. Options have the following meaning:
+- BarcodeField: Attribute of the config item used for the barcode.
+- Caption: Whether to put the data below the barcode as caption. Ignored for QR code.
+- QRCodeLink: When creating a QR code, set the link destination.
+- CustomLink: Define a custom link via Template::Toolkit syntax for QR codes.
+- Code: Which type of code to print.
+- Zone: The base height of the barcode in points.
+- LowerMendingZone: If present and applicable, bars for non-printing characters (e.g. start and stop characters) will be extended downward by this many points, and printing characters will be shown below their respective bars. This is enabled by default for EAN-13 barcodes.
+- Font: Font to use for the barcode caption.
+- FontSize: Font size to use for the barcode caption.
+        </Description>
+        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
-                <Item Key="Active">0</Item>
                 <Item Key="BarcodeField">Number</Item>
-                <Item Key="Code">code128</Item>
+                <Item Key="Caption" ValueType="Checkbox">0</Item>
+                <Item Key="QRCodeLink" ValueType="Select" SelectedID="AgentITSMConfigItemZoom">
+                    <Item ValueType="Option" Value="AgentITSMConfigItemZoom">AgentITSMConfigItemZoom</Item>
+                    <Item ValueType="Option" Value="CustomerITSMConfigItemZoom">CustomerITSMConfigItemZoom</Item>
+                    <Item ValueType="Option" Value="Custom">Custom</Item>
+                </Item>
+                <Item Key="CustomLink"></Item>
+                <Item Key="Code" ValueType="Select" SelectedID="code128">
+                    <Item ValueType="Option" Value="codabar">codabar</Item>
+                    <Item ValueType="Option" Value="code128">code128</Item>
+                    <Item ValueType="Option" Value="code39">code39</Item>
+                    <Item ValueType="Option" Value="ean128">ean128</Item>
+                    <Item ValueType="Option" Value="ean13">ean13</Item>
+                    <Item ValueType="Option" Value="itf">itf</Item>
+                    <Item ValueType="Option" Value="qr">qr</Item>
+                </Item>
                 <Item Key="Zone">20</Item>
-                <Item Key="UpperMendingZone">25</Item>
                 <Item Key="LowerMendingZone">15</Item>
-                <Item Key="Font">Proportional</Item>
+                <Item Key="Font">Helvetica</Item>
                 <Item Key="FontSize">10</Item>
-                <Item Key="Scale">0.7</Item>
+                <Item Key="Scale_X">0.7</Item>
+                <Item Key="Scale_Y">0.7</Item>
                 <Item Key="BarcodePosition_X">4</Item>
                 <Item Key="BarcodePosition_Y">4</Item>
             </Hash>
         </Value>
     </Setting>
     <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###FooterSetting" Required="1" Valid="1">
-        <Description Translatable="1">Used footer settings for the label.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
+        <Description Translatable="1">Used footer settings for the label. Template::Toolkit is supported, thus config item data can be used like "Number: [% Data.Number %]".</Description>
+        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
-                <Item Key="FooterText">Informatik Cluster IV</Item>
+                <Item Key="FooterText"></Item>
                 <Item Key="Font">Proportional</Item>
                 <Item Key="FontSize">4</Item>
                 <Item Key="Color">#000000</Item>
@@ -105,39 +129,13 @@
             </Hash>
         </Value>
     </Setting>
-    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value1" Required="0" Valid="1">
-        <Description Translatable="1">It´s possible to print up to 5 CI values to the label. Please add here the CI key.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
+    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Text" Required="0" Valid="1">
+        <Description Translatable="1">Define several lines (one entry per line) to be printed as label content. Template::Toolkit is supported, thus config item data can be used like "Number: [% Data.Number %]".</Description>
+        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
-            <Item ValueType="String" ValueRegex="">Number</Item>
-        </Value>
-    </Setting>
-    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value2" Required="0" Valid="1">
-        <Description Translatable="1">It´s possible to print up to 5 CI values to the label. Please add here the CI key.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
-        <Value>
-            <Item ValueType="String" ValueRegex="">Model</Item>
-        </Value>
-    </Setting>
-    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value3" Required="0" Valid="1">
-        <Description Translatable="1">It´s possible to print up to 5 CI values to the label. Please add here the CI key.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
-        <Value>
-            <Item ValueType="String" ValueRegex="">Name</Item>
-        </Value>
-    </Setting>
-    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value4" Required="0" Valid="1">
-        <Description Translatable="1">It´s possible to print up to 5 CI values to the label. Please add here the CI key.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
-        <Value>
-            <Item ValueType="String" ValueRegex="">DeliveryDate</Item>
-        </Value>
-    </Setting>
-    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value5" Required="0" Valid="1">
-        <Description Translatable="1">It´s possible to print up to 5 CI values to the label. Please add here the CI key.</Description>
-        <Navigation>Frontend::AgentITSMConfigItemLabelPrint</Navigation>
-        <Value>
-            <Item ValueType="String" ValueRegex="">SerialNumber</Item>
+            <Array>
+                <DefaultItem ValueType="String"></DefaultItem>
+            </Array>
         </Value>
     </Setting>
     <Setting Name="Frontend::Module###AgentITSMConfigItemLabelPrint" Required="0" Valid="1">
