@@ -1,0 +1,234 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019-2024 Rother OSS GmbH, https://otobo.de/
+# This file is distributed under the same license as the OTOBO Installation
+# Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OTOBO Installation Guide rel-11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-16 09:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../content/index.rst:16
+msgid "Sacrifice to Sphinx"
+msgstr ""
+
+#: ../../content/index.rst:19
+msgid "Description"
+msgstr ""
+
+#: ../../content/index.rst:20
+msgid "OTOBO::ITSM config item label print including barcode."
+msgstr ""
+
+#: ../../content/index.rst:23
+msgid "System requirements"
+msgstr ""
+
+#: ../../content/index.rst:26
+msgid "Framework"
+msgstr ""
+
+#: ../../content/index.rst:27
+msgid "OTOBO 11.0.x"
+msgstr ""
+
+#: ../../content/index.rst:30
+msgid "Packages"
+msgstr ""
+
+#: ../../content/index.rst:31 ../../content/index.rst:35
+msgid "\\-"
+msgstr ""
+
+#: ../../content/index.rst:34
+msgid "Third-party software"
+msgstr ""
+
+#: ../../content/index.rst:38
+msgid "Usage"
+msgstr ""
+
+#: ../../content/index.rst:41
+msgid "Setup"
+msgstr ""
+
+#: ../../content/index.rst:44
+msgid "Configuration Reference"
+msgstr ""
+
+#: ../../content/index.rst:47
+msgid "Frontend::Agent::ITSMConfigItem::MenuModule"
+msgstr ""
+
+#: ../../content/index.rst:50
+msgid "ITSMConfigItem::Frontend::MenuModule###450-LabelPrint"
+msgstr ""
+
+#: ../../content/index.rst:51
+msgid ""
+"Shows a link in the menu to print a label of the configuration item in "
+"the zoom view of the agent interface."
+msgstr ""
+
+#: ../../content/index.rst:54
+msgid "Frontend::Agent::ITSMConfigItem::Permission"
+msgstr ""
+
+#: ../../content/index.rst:57
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Permission"
+msgstr ""
+
+#: ../../content/index.rst:58
+msgid ""
+"Required permissions to use the print ITSM configuration item screen in "
+"the agent interface."
+msgstr ""
+
+#: ../../content/index.rst:61
+msgid "Frontend::Agent::ModuleRegistration"
+msgstr ""
+
+#: ../../content/index.rst:64
+msgid "Frontend::Module###AgentITSMConfigItemLabelPrint"
+msgstr ""
+
+#: ../../content/index.rst:65
+msgid "Frontend module registration for the agent interface."
+msgstr ""
+
+#: ../../content/index.rst:68
+msgid "Frontend::Agent::ModuleRegistration::MainMenu"
+msgstr ""
+
+#: ../../content/index.rst:71
+msgid "Frontend::Navigation###AgentITSMConfigItemLabelPrint###003-AgentITSMConfigItemLabelPrint"
+msgstr ""
+
+#: ../../content/index.rst:72
+msgid "Main menu item registration."
+msgstr ""
+
+#: ../../content/index.rst:75
+msgid "Frontend::AgentITSMConfigItemLabelPrint"
+msgstr ""
+
+#: ../../content/index.rst:78
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting"
+msgstr ""
+
+#: ../../content/index.rst:79
+msgid ""
+"Used logo settings for the label. The best size is 142 x 187 px. Please "
+"use here px."
+msgstr ""
+
+#: ../../content/index.rst:82
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###TableSetting"
+msgstr ""
+
+#: ../../content/index.rst:83
+msgid "Used table settings for the label."
+msgstr ""
+
+#: ../../content/index.rst:86
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###BarcodeSetting"
+msgstr ""
+
+#: ../../content/index.rst:87
+msgid "Used barcode settings for the label."
+msgstr ""
+
+#: ../../content/index.rst:90
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###FooterSetting"
+msgstr ""
+
+#: ../../content/index.rst:91
+msgid "Used footer settings for the label."
+msgstr ""
+
+#: ../../content/index.rst:94
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting"
+msgstr ""
+
+#: ../../content/index.rst:95
+msgid "Used settings for the horizont line."
+msgstr ""
+
+#: ../../content/index.rst:98
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value2"
+msgstr ""
+
+#: ../../content/index.rst:99 ../../content/index.rst:107
+#: ../../content/index.rst:111 ../../content/index.rst:115
+#: ../../content/index.rst:119
+msgid ""
+"It´s possible to print up to 5 CI values to the label. Please add here "
+"the CI key."
+msgstr ""
+
+#: ../../content/index.rst:102
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###PageSetting"
+msgstr ""
+
+#: ../../content/index.rst:103
+msgid ""
+"Used page size in mm and other page settings. Be carefull if you change "
+"the size, it´s possible that the label is unusable."
+msgstr ""
+
+#: ../../content/index.rst:106
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value1"
+msgstr ""
+
+#: ../../content/index.rst:110
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value3"
+msgstr ""
+
+#: ../../content/index.rst:114
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value5"
+msgstr ""
+
+#: ../../content/index.rst:118
+msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Value4"
+msgstr ""
+
+#: ../../content/index.rst:122
+msgid "About"
+msgstr ""
+
+#: ../../content/index.rst:125
+msgid "Contact"
+msgstr ""
+
+#: ../../content/index.rst:126
+msgid "Rother OSS GmbH"
+msgstr ""
+
+#: ../../content/index.rst:127
+msgid "Email: hello@otobo.de"
+msgstr ""
+
+#: ../../content/index.rst:128
+msgid "Web: https://otobo.de"
+msgstr ""
+
+#: ../../content/index.rst:131
+msgid "Version"
+msgstr ""
+
+#: ../../content/index.rst:132
+msgid ""
+"Author: |doc-vendor| / Version: |doc-version| / Date of release: |doc-"
+"datestamp|"
+msgstr ""
+
