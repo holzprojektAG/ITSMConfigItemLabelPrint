@@ -6,7 +6,7 @@
     <ModuleRequired>Text::QRCode</ModuleRequired>
     <PackageRequired Version="11.0.0">ITSMConfigurationManagement</PackageRequired>
     <Vendor>Rother OSS GmbH</Vendor>
-    <URL>https://otobo.de/</URL>
+    <URL>https://otobo.io/</URL>
     <License>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</License>
     <Description Lang="en">OTOBO::ITSM config item label print including barcode.</Description>
     <Description Lang="de">OTOBO::ITSM ConfigItem Label Druckfunktion mit Barcode.</Description>
