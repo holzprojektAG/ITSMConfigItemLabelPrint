@@ -26,7 +26,7 @@ Third-party software
 
 Usage
 =====
-The package ITSMConfigItemLabelPrint brings the functionality to create a highly customizable label. It is printed to a PDF file. The printing can be triggered via the added "LabelPrint" button in the Zoom view in the Agent interface.
+The package ITSMConfigItemLabelPrint enables to define highly customizable labels for assets kept in the CMDB, to be printed via the Agent interface.
 
 Setup
 -----
