@@ -23,7 +23,7 @@
         </Value>
     </Setting>
     <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting" Required="1" Valid="1">
-        <Description Translatable="1">Used logo settings for the label. The best size is 142 x 187 px. Please use here px.</Description>
+        <Description Translatable="1">Used logo settings for the label. The best size is 142 x 187 px. Please use px here.</Description>
         <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
@@ -59,7 +59,7 @@
         </Value>
     </Setting>
     <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting" Required="1" Valid="1">
-        <Description Translatable="1">Used settings for the horizont line.</Description>
+        <Description Translatable="1">Used settings for the horizontal line.</Description>
         <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>

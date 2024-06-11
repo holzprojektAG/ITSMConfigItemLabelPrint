@@ -26,17 +26,17 @@ Third-party software
 
 Usage
 =====
-The package ITSMConfigItemLabelPrint brings the functionality to create a highly customizable PDF file. This can be done via the added "LabelPrint" button in the Zoom view in the Agent interface.
+The package ITSMConfigItemLabelPrint brings the functionality to create a highly customizable label. It is printed to a PDF file. The printing can be triggered via the added "LabelPrint" button in the Zoom view in the Agent interface.
 
 Setup
 -----
 To shape the resulting PDF file as needed, a wide variety of options is available. The PDF consists of 5 elements (see Picture) and the respective system configuration:
 
-- Logo (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting`)
-- Text (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Text`)
-- Horizontal Line (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting`)
-- Barcode (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###BarcodeSetting`)
-- Footer (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###FooterSetting`)
+* Logo (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting`)
+* Text (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Text`)
+* Horizontal Line (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting`)
+* Barcode (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###BarcodeSetting`)
+* Footer (`ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###FooterSetting`)
 
 Each of this is only printed if the corresponding system configuration setting is active. This way, it can be defined which elements are wanted and which elements are omitted entirely.
 
@@ -131,11 +131,11 @@ Used table settings for the label.
 
 ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Used logo settings for the label. The best size is 142 x 187 px. Please use here px.
+Used logo settings for the label. The best size is 142 x 187 px. Please use px here.
 
 ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Used settings for the horizont line.
+Used settings for the horizontal line.
 
 ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Text
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,8 +155,8 @@ About
 Contact
 -------
 | Rother OSS GmbH
-| Email: hello@otobo.de
-| Web: https://otobo.de
+| Email: hello@otobo.io
+| Web: https://otobo.io
 
 Version
 -------
