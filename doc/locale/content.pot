@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTOBO Installation Guide rel-11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-27 04:19+0200\n"
+"POT-Creation-Date: 2024-06-22 04:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgid "Usage"
 msgstr ""
 
 #: ../../content/index.rst:39
-msgid "The package ITSMConfigItemLabelPrint brings the functionality to create a highly customizable PDF file. This can be done via the added \"LabelPrint\" button in the Zoom view in the Agent interface."
+msgid "The package ITSMConfigItemLabelPrint enables to define highly customizable labels for assets kept in the CMDB, to be printed via the Agent interface."
 msgstr ""
 
 #: ../../content/index.rst:42
@@ -257,7 +257,7 @@ msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###LogoSetting"
 msgstr ""
 
 #: ../../content/index.rst:144
-msgid "Used logo settings for the label. The best size is 142 x 187 px. Please use here px."
+msgid "Used logo settings for the label. The best size is 142 x 187 px. Please use px here."
 msgstr ""
 
 #: ../../content/index.rst:147
@@ -265,7 +265,7 @@ msgid "ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting"
 msgstr ""
 
 #: ../../content/index.rst:148
-msgid "Used settings for the horizont line."
+msgid "Used settings for the horizontal line."
 msgstr ""
 
 #: ../../content/index.rst:151
