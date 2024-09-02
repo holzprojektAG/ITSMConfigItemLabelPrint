@@ -12,8 +12,8 @@
         <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
-                <Item Key="PageWidth">76.6</Item>
-                <Item Key="PageHeight">40.0</Item>
+                <Item Key="PageWidth">62</Item>
+                <Item Key="PageHeight">30</Item>
                 <Item Key="PageOrientation">normal</Item>
                 <Item Key="MarginTop">4</Item>
                 <Item Key="MarginRight">4</Item>
@@ -27,11 +27,11 @@
         <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
-                <Item Key="LogoPath">var/httpd/htdocs/skins/Agent/default/img/LogoLabelPrint.png</Item>
+                <Item Key="LogoPath">var/httpd/htdocs/skins/Agent/default/img/logo_holzprojekt.png</Item>
                 <Item Key="DisplayType">Reduce</Item>
-                <Item Key="ImageWidth">142</Item>
-                <Item Key="ImageHeight">179</Item>
-                <Item Key="ImagePosition_X">left</Item>
+                <Item Key="ImageWidth">580</Item>
+                <Item Key="ImageHeight">100</Item>
+                <Item Key="ImagePosition_X">35</Item>
                 <Item Key="ImagePosition_Y">top</Item>
                 <Item Key="MarginBottom">4</Item>
             </Hash>
@@ -42,31 +42,18 @@
         <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
-                <Item Key="Font">ProportionalBold</Item>
-                <Item Key="TitleWidth">50</Item>
-                <Item Key="ValueWidth">50</Item>
+                <Item Key="TitleWidth">46</Item>
+                <Item Key="ValueWidth">46</Item>
                 <Item Key="Type">Cut</Item>
                 <Item Key="Border">0</Item>
-                <Item Key="FontSize">9</Item>
-                <Item Key="Padding">1</Item>
-                <Item Key="PaddingLeft">3</Item>
-                <Item Key="PaddingTop">1</Item>
-                <Item Key="PaddingBottom">3</Item>
-                <Item Key="PaddingRight">1</Item>
-                <Item Key="TablePosition_X">40</Item>
-                <Item Key="TablePosition_Y">top</Item>
-            </Hash>
-        </Value>
-    </Setting>
-    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###HLineSetting" Required="1" Valid="1">
-        <Description Translatable="1">Used settings for the horizontal line.</Description>
-        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
-        <Value>
-            <Hash>
-                <Item Key="HLinePosition_X">left</Item>
-                <Item Key="HLinePosition_Y">20</Item>
-                <Item Key="Color">#101010</Item>
-                <Item Key="LineWidth">.5</Item>
+                <Item Key="FontSize">6</Item>
+                <Item Key="Padding">0</Item>
+                <Item Key="PaddingLeft">0</Item>
+                <Item Key="PaddingTop">0</Item>
+                <Item Key="PaddingBottom">0</Item>
+                <Item Key="PaddingRight">0</Item>
+                <Item Key="TablePosition_X">45</Item>
+                <Item Key="TablePosition_Y">45</Item>
             </Hash>
         </Value>
     </Setting>
@@ -93,7 +80,7 @@
                     <Item ValueType="Option" Value="Custom">Custom</Item>
                 </Item>
                 <Item Key="CustomLink"></Item>
-                <Item Key="Code" ValueType="Select" SelectedID="code128">
+                <Item Key="Code" ValueType="Select" SelectedID="qr">
                     <Item ValueType="Option" Value="codabar">codabar</Item>
                     <Item ValueType="Option" Value="code128">code128</Item>
                     <Item ValueType="Option" Value="code39">code39</Item>
@@ -102,13 +89,13 @@
                     <Item ValueType="Option" Value="itf">itf</Item>
                     <Item ValueType="Option" Value="qr">qr</Item>
                 </Item>
-                <Item Key="Zone">20</Item>
+                <Item Key="Zone">0</Item>
                 <Item Key="LowerMendingZone">15</Item>
                 <Item Key="Font">Helvetica</Item>
                 <Item Key="FontSize">10</Item>
-                <Item Key="Scale_X">0.7</Item>
-                <Item Key="Scale_Y">0.7</Item>
-                <Item Key="BarcodePosition_X">4</Item>
+                <Item Key="Scale_X">1</Item>
+                <Item Key="Scale_Y">0.1</Item>
+                <Item Key="BarcodePosition_X">0</Item>
                 <Item Key="BarcodePosition_Y">4</Item>
             </Hash>
         </Value>
@@ -118,7 +105,7 @@
         <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
-                <Item Key="FooterText"></Item>
+                <Item Key="FooterText">CI Number: [% Data.Number %]   I   holzprojekt.ch</Item>
                 <Item Key="Font">Proportional</Item>
                 <Item Key="FontSize">4</Item>
                 <Item Key="Color">#000000</Item>
@@ -127,15 +114,6 @@
                 <Item Key="FooterPosition_X">0</Item>
                 <Item Key="FooterPosition_Y">8</Item>
             </Hash>
-        </Value>
-    </Setting>
-    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###Text" Required="0" Valid="1">
-        <Description Translatable="1">Define several lines (one entry per line) to be printed as label content. Template::Toolkit is supported, thus config item data can be used like "Number: [% Data.Number %]".</Description>
-        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
-        <Value>
-            <Array>
-                <DefaultItem ValueType="String"></DefaultItem>
-            </Array>
         </Value>
     </Setting>
     <Setting Name="Frontend::Module###AgentITSMConfigItemLabelPrint" Required="0" Valid="1">
