@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otobo_package version="1.0">
+    <Name>ITSMConfigItemLabelPrintHolzprojekt</Name>
+    <Version>0.0.1</Version>
+    <Framework>11.0.x</Framework>
+    <ModuleRequired>Text::QRCode</ModuleRequired>
+    <PackageRequired Version="11.0.0">ITSMConfigurationManagement</PackageRequired>
+    <Vendor>holzprojekt AG</Vendor>
+    <URL>https://holzprojekt.ch/</URL>
+    <License>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</License>
+    <Description Lang="en">OTOBO::ITSM config item label print including barcode.</Description>
+    <Description Lang="de">OTOBO::ITSM ConfigItem Label Druckfunktion mit Barcode.</Description>
+    <Filelist>
+        <File Permission="660" Location="Kernel/Config/Files/XML/ITSMConfigItemLabelPrint.xml" />
+        <File Permission="660" Location="Kernel/Modules/AgentITSMConfigItemLabelPrint.pm" />
+    </Filelist>
+    <PackageMerge Name="RotherOSS-ITSMConfigItemLabelPrint" TargetVersion="11.0.1"></PackageMerge>
+</otobo_package>
