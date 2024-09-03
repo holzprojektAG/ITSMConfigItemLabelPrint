@@ -232,108 +232,6 @@ sub _PDFOutputGeneralInfos {
         }
     }
 
-    # print Table
-    if ( $Self->{Config}{TableSetting} ) {
-
-        $PDFObject->PositionSet(
-            X => $Self->{Config}{TableSetting}{TablePosition_X},
-            Y => $Self->{Config}{TableSetting}{TablePosition_Y},
-        );
-
-        my %TableParam;
-
-        $TableParam{CellData}[0][0]{Font}     = 'ProportionalBold';
-        $TableParam{CellData}[0][0]{FontSize} = $Self->{Config}{TableSetting}{FontSize};
-        $TableParam{CellData}[0][0]{Align}    = 'left';
-        $TableParam{CellData}[0][0]{Content}  = $ReadableConfigItemData{'Name'};
-
-        $TableParam{CellData}[1][0]{Font}     = 'Proportional';
-        $TableParam{CellData}[1][0]{FontSize} = $Self->{Config}{TableSetting}{FontSize};
-        $TableParam{CellData}[1][0]{Align}    = 'left';
-
-        # Ensure that each variable is a string and set default to an empty string if not defined or empty
-        my $hardware_sn = defined $ReadableConfigItemData{'DynamicField_Hardware-SerialNumber'}
-            ? (length($ReadableConfigItemData{'DynamicField_Hardware-SerialNumber'}) > 0
-                ? "$ReadableConfigItemData{'DynamicField_Hardware-SerialNumber'}"
-                : "")
-            : "";
-
-        my $computer_sn = defined $ReadableConfigItemData{'DynamicField_Computer-SerialNumber'}
-            ? (length($ReadableConfigItemData{'DynamicField_Computer-SerialNumber'}) > 0
-                ? "$ReadableConfigItemData{'DynamicField_Computer-SerialNumber'}"
-                : "")
-            : "";
-
-        my $software_sn = defined $ReadableConfigItemData{'DynamicField_Software-SerialNumber'}
-            ? (length($ReadableConfigItemData{'DynamicField_Software-SerialNumber'}) > 0
-                ? "$ReadableConfigItemData{'DynamicField_Software-SerialNumber'}"
-                : "")
-            : "";
-
-        # If at least one of the Serial Numbers is not empty, set S/N, otherwise empty
-        if ($hardware_sn ne '' || $computer_sn ne '' || $software_sn ne '') {
-            $TableParam{CellData}[1][0]{Content} = "S/N: $hardware_sn $computer_sn $software_sn";
-        } else {
-            $TableParam{CellData}[1][0]{Content} = '';
-        }
-
-        use strict;
-        use warnings;
-        use Time::Piece;
-
-        # Function for converting and comparing date values
-        sub check_and_format_date {
-            my ($date_str) = @_;
-            my $formatted_date = '';
-
-            # Check if the date text is defined and not empty
-            if (defined $date_str && length($date_str) > 0) {
-                eval {
-                    my $date = Time::Piece->strptime($date_str, '%Y-%m-%d');
-                    my $today = Time::Piece->new;  # aktuelles Datum
-                    if ($date < $today) {
-                        $formatted_date = '';
-                    } else {
-                        $formatted_date = $date->strftime('%d.%m.%Y');
-                    }
-                };
-                # Error handling for invalid date formats
-                if ($@) {
-                    warn "Date parsing error: $@";
-                    $formatted_date = '';
-                }
-            }
-
-            return $formatted_date;
-        }
-
-    # Ensure that each variable is a string and set default to an empty string if not defined or empty
-	my $hardware_wed = check_and_format_date($ReadableConfigItemData{'DynamicField_Hardware-WarrantyExpirationDate'});
-	my $computer_wed = check_and_format_date($ReadableConfigItemData{'DynamicField_Computer-WarrantyExpirationDate'});
-
-	# Wenn mindestens einer der beiden Werte nicht leer ist, setze WED
-	if ($hardware_wed ne '' || $computer_wed ne '') {
-		$TableParam{CellData}[2][0]{Font}     = 'Proportional';
-		$TableParam{CellData}[2][0]{FontSize} = $Self->{Config}{TableSetting}{FontSize};
-		$TableParam{CellData}[2][0]{Align}    = 'left';
-		$TableParam{CellData}[2][0]{Content}  = "WED: $hardware_wed $computer_wed";
-	}
-
-        $TableParam{ColumnData}[0]{Width} = $Self->{Config}{TableSetting}{ValueWidth};
-        $TableParam{Type}                 = $Self->{Config}{TableSetting}{Type};
-        $TableParam{Border}               = $Self->{Config}{TableSetting}{Border};
-        $TableParam{FontSize}             = $Self->{Config}{TableSetting}{FontSize};
-        $TableParam{Padding}              = $Self->{Config}{TableSetting}{Padding};
-        $TableParam{PaddingTop}           = $Self->{Config}{TableSetting}{PaddingTop};
-        $TableParam{PaddingBottom}        = $Self->{Config}{TableSetting}{PaddingBottom};
-        $TableParam{PaddingLeft}          = $Self->{Config}{TableSetting}{PaddingLeft};
-        $TableParam{PaddingRight}         = $Self->{Config}{TableSetting}{PaddingRight};
-
-        # output table (or a fragment of it)
-        %TableParam = $PDFObject->Table(%TableParam);
-    }
-
-
     # Set window preferences
     $PDFObject->PositionSet(
         X => "left",
@@ -396,6 +294,125 @@ sub _PDFOutputGeneralInfos {
             $Self->{Config}{BarcodeSetting}{Scale_X},
             $Self->{Config}{BarcodeSetting}{Scale_Y},
         );
+    }
+
+    # print ConfigItemTitle
+
+    if ( $Self->{Config}{TitleSetting} ) {
+
+        $PDFObject->PositionSet(
+            X => $Self->{Config}{TitleSetting}{TitlePosition_X},
+            Y => $Self->{Config}{TitleSetting}{TitlePosition_Y},
+        );
+
+        # evaluate FooterText
+        my $TitleText = $LayoutObject->Output(
+            Template => $Self->{Config}{TitleSetting}{TitleText},
+            Data     => \%ReadableConfigItemData,
+        );
+
+        $PDFObject->Text(
+            Text     => $TitleText,
+            Font     => $Self->{Config}->{TitleSetting}->{Font},
+            FontSize => $Self->{Config}->{TitleSetting}->{FontSize},
+            Color    => $Self->{Config}->{TitleSetting}->{Color},
+            Align    => $Self->{Config}->{TitleSetting}->{Align},
+            Lead     => $Self->{Config}->{TitleSetting}->{Lead},
+        );
+    }
+
+    # print ConfigItemDetails
+
+    if ( $Self->{Config}{ConfigItemDetailsSetting} ) {
+
+        # Ensure that each variable is a string and set default to an empty string if not defined or empty
+        my $hardware_sn = defined $ReadableConfigItemData{'DynamicField_Hardware-SerialNumber'}
+            ? (length($ReadableConfigItemData{'DynamicField_Hardware-SerialNumber'}) > 0
+                ? "$ReadableConfigItemData{'DynamicField_Hardware-SerialNumber'}"
+                : "")
+            : "";
+
+        my $computer_sn = defined $ReadableConfigItemData{'DynamicField_Computer-SerialNumber'}
+            ? (length($ReadableConfigItemData{'DynamicField_Computer-SerialNumber'}) > 0
+                ? "$ReadableConfigItemData{'DynamicField_Computer-SerialNumber'}"
+                : "")
+            : "";
+
+        my $software_sn = defined $ReadableConfigItemData{'DynamicField_Software-SerialNumber'}
+            ? (length($ReadableConfigItemData{'DynamicField_Software-SerialNumber'}) > 0
+                ? "$ReadableConfigItemData{'DynamicField_Software-SerialNumber'}"
+                : "")
+            : "";
+
+        my $sn_content = '';
+        if ($hardware_sn ne '' || $computer_sn ne '' || $software_sn ne '') {
+            $sn_content = "S/N: $hardware_sn $computer_sn $software_sn";
+        }
+
+        use strict;
+        use warnings;
+        use Time::Piece;
+
+        # Function for converting and comparing date values
+        sub check_and_format_date {
+            my ($date_str) = @_;
+            my $formatted_date = '';
+
+            # Check if the date text is defined and not empty
+            if (defined $date_str && length($date_str) > 0) {
+                eval {
+                    my $date = Time::Piece->strptime($date_str, '%Y-%m-%d');
+                    my $today = Time::Piece->new;  # aktuelles Datum
+                    if ($date < $today) {
+                        $formatted_date = '';
+                    } else {
+                        $formatted_date = $date->strftime('%d.%m.%Y');
+                    }
+                };
+                # Error handling for invalid date formats
+                if ($@) {
+                    warn "Date parsing error: $@";
+                    $formatted_date = '';
+                }
+            }
+
+            return $formatted_date;
+        }
+
+        my $hardware_wed = check_and_format_date($ReadableConfigItemData{'DynamicField_Hardware-WarrantyExpirationDate'});
+        my $computer_wed = check_and_format_date($ReadableConfigItemData{'DynamicField_Computer-WarrantyExpirationDate'});
+
+        my $wed_content = '';
+        if ($hardware_wed ne '' || $computer_wed ne '') {
+            $wed_content = "Warranty Expiration Date: $hardware_wed $computer_wed";
+        }
+
+        my $ci_content = "CI Number: $ReadableConfigItemData{'Number'}";
+
+        # Combine S/N and WED into one cell with an optional line break
+        my $combined_content = '';
+        if ($sn_content ne '' && $wed_content ne '') {
+            $combined_content = "$sn_content\n$wed_content\n$ci_content";  # Add line break between S/N and WED
+        } elsif ($sn_content ne '') {
+            $combined_content = "$sn_content\n$ci_content";
+        } elsif ($wed_content ne '') {
+            $combined_content = "$wed_content\n$ci_content";
+        }
+
+        $PDFObject->PositionSet(
+            X => $Self->{Config}{ConfigItemDetailsSetting}{ConfigItemDetailsPosition_X},
+            Y => $Self->{Config}{ConfigItemDetailsSetting}{ConfigItemDetailsPosition_Y},
+        );
+
+        $PDFObject->Text(
+            Text     => $combined_content,
+            Font     => $Self->{Config}->{ConfigItemDetailsSetting}->{Font},
+            FontSize => $Self->{Config}->{ConfigItemDetailsSetting}->{FontSize},
+            Color    => $Self->{Config}->{ConfigItemDetailsSetting}->{Color},
+            Align    => $Self->{Config}->{ConfigItemDetailsSetting}->{Align},
+            Lead     => $Self->{Config}->{ConfigItemDetailsSetting}->{Lead},
+        );
+
     }
 
     # print Footer

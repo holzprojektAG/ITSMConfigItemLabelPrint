@@ -17,7 +17,7 @@
                 <Item Key="PageOrientation">normal</Item>
                 <Item Key="MarginTop">4</Item>
                 <Item Key="MarginRight">4</Item>
-                <Item Key="MarginLeft">4</Item>
+                <Item Key="MarginLeft">8</Item>
                 <Item Key="MarginBottom">4</Item>
             </Hash>
         </Value>
@@ -31,29 +31,9 @@
                 <Item Key="DisplayType">Reduce</Item>
                 <Item Key="ImageWidth">580</Item>
                 <Item Key="ImageHeight">100</Item>
-                <Item Key="ImagePosition_X">35</Item>
+                <Item Key="ImagePosition_X">26</Item>
                 <Item Key="ImagePosition_Y">top</Item>
                 <Item Key="MarginBottom">4</Item>
-            </Hash>
-        </Value>
-    </Setting>
-    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###TableSetting" Required="1" Valid="1">
-        <Description Translatable="1">Used table settings for the label.</Description>
-        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
-        <Value>
-            <Hash>
-                <Item Key="TitleWidth">46</Item>
-                <Item Key="ValueWidth">46</Item>
-                <Item Key="Type">Cut</Item>
-                <Item Key="Border">0</Item>
-                <Item Key="FontSize">6</Item>
-                <Item Key="Padding">0</Item>
-                <Item Key="PaddingLeft">0</Item>
-                <Item Key="PaddingTop">0</Item>
-                <Item Key="PaddingBottom">0</Item>
-                <Item Key="PaddingRight">0</Item>
-                <Item Key="TablePosition_X">45</Item>
-                <Item Key="TablePosition_Y">45</Item>
             </Hash>
         </Value>
     </Setting>
@@ -95,7 +75,7 @@
                 <Item Key="FontSize">10</Item>
                 <Item Key="Scale_X">1</Item>
                 <Item Key="Scale_Y">0.1</Item>
-                <Item Key="BarcodePosition_X">0</Item>
+                <Item Key="BarcodePosition_X">4</Item>
                 <Item Key="BarcodePosition_Y">4</Item>
             </Hash>
         </Value>
@@ -105,14 +85,45 @@
         <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
         <Value>
             <Hash>
-                <Item Key="FooterText">CI Number: [% Data.Number %]   I   holzprojekt.ch</Item>
+                <Item Key="FooterText">holzprojekt AG   I   holzprojekt.ch</Item>
                 <Item Key="Font">Proportional</Item>
-                <Item Key="FontSize">4</Item>
+                <Item Key="FontSize">5</Item>
                 <Item Key="Color">#000000</Item>
-                <Item Key="Align">right</Item>
+                <Item Key="Align">left</Item>
                 <Item Key="Lead">1</Item>
-                <Item Key="FooterPosition_X">0</Item>
-                <Item Key="FooterPosition_Y">8</Item>
+                <Item Key="FooterPosition_X">50</Item>
+                <Item Key="FooterPosition_Y">10</Item>
+            </Hash>
+        </Value>
+    </Setting>
+    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###TitleSetting" Required="1" Valid="1">
+        <Description Translatable="1">Used title settings for the label. Template::Toolkit is supported, thus config item data can be used like "Number: [% Data.Number %]".</Description>
+        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
+        <Value>
+            <Hash>
+                <Item Key="TitleText">[% Data.Name %]</Item>
+                <Item Key="Font">ProportionalBold</Item>
+                <Item Key="FontSize">6</Item>
+                <Item Key="Color">#000000</Item>
+                <Item Key="Align">left</Item>
+                <Item Key="Lead">1</Item>
+                <Item Key="TitlePosition_X">50</Item>
+                <Item Key="TitlePosition_Y">43</Item>
+            </Hash>
+        </Value>
+    </Setting>
+    <Setting Name="ITSMConfigItem::Frontend::AgentITSMConfigItemLabelPrint###ConfigItemDetailsSetting" Required="1" Valid="1">
+        <Description Translatable="1">Used config item details settings for the label.</Description>
+        <Navigation>Frontend::Agent::View::AgentITSMConfigItemLabelPrint</Navigation>
+        <Value>
+            <Hash>
+                <Item Key="Font">Proportional</Item>
+                <Item Key="FontSize">5.5</Item>
+                <Item Key="Color">#000000</Item>
+                <Item Key="Align">left</Item>
+                <Item Key="Lead">1</Item>
+                <Item Key="ConfigItemDetailsPosition_X">50</Item>
+                <Item Key="ConfigItemDetailsPosition_Y">35</Item>
             </Hash>
         </Value>
     </Setting>
